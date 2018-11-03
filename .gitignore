@@ -1,2 +1,4 @@
 .DS_Store
 idea/
+.bin
+/Mecab_and_Word2vec/wiki/wikiextractor/*
