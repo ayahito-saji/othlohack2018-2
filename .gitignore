@@ -2,4 +2,5 @@
 .idea/
 .bin
 /Mecab_and_Word2vec/wiki/wikiextractor/*
-__pycache__/
+__pycache__
+wiki_text/
