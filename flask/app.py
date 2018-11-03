@@ -11,8 +11,11 @@ def index():
     # index.html をレンダリングする
     return render_template('index.html')
 
+@app.route('/camera')
+def camera():
+    return render_template('camera.html')
 
-@app.route('/edit', methods=['GET'])
+@app.route('/edit', methods=['POST'])
 def edit():
     return render_template('edit.html')
 
