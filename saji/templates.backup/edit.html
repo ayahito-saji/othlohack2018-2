@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block content %}
+<form action="/result" method="post">
+    <textarea cols="50" rows="30">
+    {{ letter_body }}
+    </textarea>
+    <input type="submit" value="送信する">
+</form>
+{% endblock %}

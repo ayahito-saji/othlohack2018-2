@@ -1,5 +1,7 @@
 # Flask などの必要なライブラリをインポートする
 from flask import Flask, render_template, request, redirect, url_for
+import json
+import google_ocr
 
 # 自身の名称を app という名前でインスタンス化する
 app = Flask(__name__)
@@ -17,7 +19,22 @@ def camera():
 
 @app.route('/edit', methods=['POST'])
 def edit():
-    return render_template('edit.html')
+    # imageファイルを保存する
+    img_file = request.files['upfile']
+    img_file.save("./camera_data/sample.jpg")
+
+    # ファイルをOCRにかける
+    api_key = "AIzaSyDNDH54qwYoqAs_qXSyYsBjWUfcXbdk6uA"
+    image_filenames = ["./camera_data/sample.jpg"]
+    response = google_ocr.request_ocr(api_key, image_filenames)
+    if response.status_code != 200 or response.json().get('error'):
+        print(response.text)
+        return render_template('edit.html', letter_body="")
+    else:
+        with open('./camera_data/sample.jpg.json', 'w', encoding='utf-8') as fp:
+            fp.write(json.dumps(response.json(), ensure_ascii=False))
+        return render_template('edit.html', letter_body=response.json()["responses"][0]["textAnnotations"][0]["description"])
+
 
 @app.route('/result', methods=['POST'])
 def result():
