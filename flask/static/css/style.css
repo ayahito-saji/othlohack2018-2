@@ -1,0 +1,146 @@
+/* iOSでのデフォルトスタイルをリセット */
+input[type="submit"],
+input[type="button"] {
+  border-radius: 0;
+  -webkit-box-sizing: content-box;
+  -webkit-appearance: button;
+  appearance: button;
+  border: none;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+input[type="submit"]::-webkit-search-decoration,
+input[type="button"]::-webkit-search-decoration {
+  display: none;
+}
+input[type="submit"]::focus,
+input[type="button"]::focus {
+  outline-offset: -2px;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+  height: auto;
+}
+header {
+	height: 60px;
+	width: 100%;
+	background: #fff;
+}
+.top {
+	padding: 50px 0;
+	height: auto;
+  min-height: 85vh;
+	background: linear-gradient(25deg, rgba(255,90,90,0.4), rgba(255,177,120,0.7)), url("/static/images/top.jpg");
+	background-size: cover;
+  background-repeat: no-repeat;
+	background-position: center;
+}
+.main-ttl {
+	color: #fff;
+  text-align: center;
+	font-family: "Hannari";
+	margin: 50px 0;
+	font-size: 25vw;
+  line-height: 1;
+}
+.main-sbttl {
+	font-size: 25px;
+	font-family: 'Sawarabi Mincho', sans-serif;
+	text-align: center;
+  color: #fff;
+}
+.button {
+  width: 250px;
+  margin: auto;
+  display: block;
+}
+.top-button {
+	position: absolute;
+  width: 250px;
+  bottom: 60px;
+  left: 50%;
+  transform: translate(-50%);
+}
+.authors {
+	text-align: center;
+	text-align: center;
+  font-size: 18px;
+  color: #fff;
+	position: absolute;
+	bottom: 0px;
+  left: 47%;
+  transform: translate(-45%);
+}
+.edit, .result {
+	background: linear-gradient(25deg, rgba(255,177,120,0.4), rgba(255,90,90,0.7)), url(/static/images/edit.jpg);
+	padding: 10px;
+	height: auto;
+	min-height: 85vh;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	font-family: 游ゴシック, YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, sans-serif;
+	font-weight: bold;
+	color: #fff;
+	
+}
+.main-txt {
+	border-bottom: 3px solid #fff;
+	font-size: 27px;
+	text-align: center;
+	margin: 20px 0;
+}
+.txt-area {
+	width: 85%;
+  margin: auto;
+  text-align: center;
+	font-size: 25px;
+}
+.txt-blank {
+	width: 100%;
+	height: 10em;
+	background: #FFF1F1;
+}
+.edit-txt {
+	width: 9em;
+  line-height: 2;
+  vertical-align: text-top;
+}
+.result {
+	background: linear-gradient(25deg, rgba(255,177,120,0.4), rgba(255,90,90,0.7)), url("/static/images/result.jpg");
+	background-position: center;
+}
+.hana-list {
+	list-style: none;
+	padding: 0;
+	margin-bottom: 50px;
+	color: #fff;
+	font-size: 18px;
+}
+.hana-img {
+	border-radius: 50%;
+	height: 80px;
+	width: 80px;
+	background: #fff;
+	overflow: hidden;
+}
+.hana-img img {
+	width: 100%;
+}
+.hana-word {
+	background: #F05A5A;
+	display: inline-block;
+	padding: 3px 10px;
+	border: 2px solid #fff;
+}
+.hana-flex {
+	display: flex;
+}
+.hana-txt {
+	text-align: left;
+  width: 70%;
+  margin-left: 15px;
+}
