@@ -6,7 +6,7 @@ import numpy as np
 import re
 
 def letter_to_vector(letter):
-    file_name = "../Mecab_and_Word2vec/txt/jawiki_studied_data.bin"
+    file_name = "./jawiki_studied_data.bin"
     model = KeyedVectors.load_word2vec_format(file_name, binary=True)
 
     M = MeCab.Tagger()
