@@ -1,32 +1,23 @@
 {% extends "layout.html" %}
 {% block content %}
 <section class="result">
-	<h3 class="main-txt">花束ができました！</h3>
-	<p class="sb-txt">あなたのあの人への思いがこもった、お手紙から生まれた花束です。</p>
-	<div class="txt-area" style="margin: 0 auto 50px">
-		<p><input type="text" class="edit-txt"> へ</p>
-		<div class="txt-blank"></div>
-		<p><input type="text" class="edit-txt"> より</p>
-	</div>
-	<h3 class="main-txt">こんな花束になりました</h3>
+	<h3 class="main-txt">こんな花が咲きました</h3>
+	<p class="sb-txt">大切なあの人への思いがこもった、あなたの手紙から生まれた花束です。</p>
 	<div class="txt-area">
 		<ul class="hana-list">
 			<li class="hana-item">
-				<p class="hana-word">あああ</p>
 				<div class="hana-flex">
 					<div class="hana-img"><img src="../static/images/bouquet.png"></div>
 					<div class="hana-txt">テキストが入りますテキストが入ります</div>
 				</div>
 			</li>
 			<li class="hana-item">
-				<p class="hana-word">あああ</p>
 				<div class="hana-flex">
 					<div class="hana-img"><img src="../static/images/bouquet.png"></div>
 					<div class="hana-txt">テキストが入りますテキストが入ります</div>
 				</div>
 			</li>
 			<li class="hana-item">
-				<p class="hana-word">あああ</p>
 				<div class="hana-flex">
 					<div class="hana-img"><img src="../static/images/bouquet.png"></div>
 					<div class="hana-txt">テキストが入りますテキストが入ります</div>
@@ -34,7 +25,12 @@
 			</li>
 		</ul>
 	</div>
+	<h3 class="main-txt">あなたの手紙</h3>
+	<div class="txt-area" style="margin: 0 auto 50px">
+		<p><input type="text" class="edit-txt"> へ</p>
+		<div class="txt-blank"></div>
+		<p><input type="text" class="edit-txt"> より</p>
+	</div>
 	<img class="button" src="/static/images/button03.png"><br>
-	<img class="button" src="/static/images/button04.png">
 </section>
 {% endblock %}
