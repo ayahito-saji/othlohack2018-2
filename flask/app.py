@@ -21,9 +21,12 @@ def camera():
 @app.route('/edit', methods=['POST', 'GET'])
 def edit():
     # imageファイルを保存する
-    img_file = request.files['upfile']
-    img_file.save("./camera_data/sample.jpg")
-
+    try:
+        img_file = request.files['upfile']
+        img_file.save("./camera_data/sample.jpg")
+    except:
+        return render_template('edit.html', letter_body="")
+        
     # ファイルをOCRにかける
     api_key = "AIzaSyDNDH54qwYoqAs_qXSyYsBjWUfcXbdk6uA"
     image_filenames = ["./camera_data/sample.jpg"]
@@ -52,9 +55,9 @@ def result():
     vectors_list = letter_to_vector(letter_body)
     results_list = get_similar_flowers_list(vectors_list)
     #もらったデータと花データベースを比較し、似ている数個をピックアップ
-    # print(results_list)
+    print(results_list)
 
-    return render_template('result.html', results=results_list)
+    return render_template('result.html', results=results_list, letter_body=letter_body)
 
 if __name__ == '__main__':
     app.debug = True # デバッグモード有効化
