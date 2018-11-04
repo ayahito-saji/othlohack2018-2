@@ -9,7 +9,13 @@
 			<li class="hana-item">
 				<div class="hana-flex">
 					<div class="hana-img"><img src="../static/images/bouquet.png"></div>
-					<div class="hana-txt">{{ result[0] }}<br>{{ result[1] }}</div>
+					<div class="hana-txt">{{ result[0] }}<br>{{ result[1] }}<br>
+                        <small>
+                            {% for sub_word in result[2] %}
+                                {{ sub_word }} 
+                            {% endfor %}
+                        </small>
+                    </div>
 				</div>
 			</li>
             {% endfor %}
