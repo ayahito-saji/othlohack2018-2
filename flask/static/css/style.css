@@ -22,28 +22,22 @@ body {
 	margin: 0;
 	padding: 0;
 	width: 100vw;
-  height: auto;
-}
-header {
-	height: 60px;
-	width: 100%;
-	background: #fff;
 }
 .top {
-	padding: 50px 0;
-	height: auto;
-  min-height: 85vh;
-	background: linear-gradient(25deg, rgba(255,90,90,0.4), rgba(255,177,120,0.7)), url("/static/images/top.jpg");
+	padding: 20px 0 0;
+	height: 100%;
+	background: linear-gradient(25deg, rgba(255,177,120,0.7),rgba(255,90,90,0.4)), url("/static/images/top.jpg");
 	background-size: cover;
   background-repeat: no-repeat;
 	background-position: center;
+	min-height: 100vh;
 }
 .main-ttl {
 	color: #fff;
   text-align: center;
 	font-family: "Hannari";
 	margin: 50px 0;
-	font-size: 25vw;
+	font-size: 21vw;
   line-height: 1;
 }
 .main-sbttl {
@@ -53,30 +47,25 @@ header {
   color: #fff;
 }
 .button {
-  margin: auto;
+  margin: 60px auto 0;
   display: block;
 }
 .authors {
 	text-align: center;
-	text-align: center;
-  font-size: 18px;
-  color: #fff;
-	position: absolute;
-	bottom: 0px;
-  left: 47%;
-  transform: translate(-45%);
+	font-size: 18px;
+	color: #fff;
 }
 .edit, .result {
 	background: linear-gradient(25deg, rgba(255,177,120,0.4), rgba(255,90,90,0.7)), url(/static/images/edit.jpg);
 	padding: 10px;
-	height: auto;
-	min-height: 85vh;
+	height: 100%;
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
 	font-family: 游ゴシック, YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, sans-serif;
 	font-weight: bold;
 	color: #fff;
+	min-height: 100vh;
 }
 .main-txt {
 	border-bottom: 3px solid #fff;
@@ -95,7 +84,6 @@ header {
 }
 .txt-blank {
 	width: 100%;
-	height: 7em;
 	background: #FFF1F1;
 	font-size: 20px;
 	color: #391717;
@@ -146,13 +134,13 @@ header {
   margin-left: 15px;
 }
 .camera {
-	background: linear-gradient(25deg, rgba(255,90,90,0.4), rgba(255,177,120,0.7));
+	background: linear-gradient(25deg, rgba(255,177,120,0.7),rgba(255,90,90,0.4));
 	padding: 10px;
-	height: auto;
-  min-height: 85vh;
+	height: 100%;
 	font-family: 游ゴシック, YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, sans-serif;
 	font-weight: bold;
 	color: #fff;
+	min-height: 100vh;
 }
 .thumb {
 	width: 200px;
