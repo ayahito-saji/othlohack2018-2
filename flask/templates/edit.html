@@ -4,10 +4,13 @@
 	<h3 class="main-txt">手直しします</h3>
 	<p class="sb-txt">あなたが書いたお手紙がきちんと読み取れているか確認しましょう。<br>手直ししたい箇所をタップしてください。</p>
 	<div class="txt-area">
-		<form>
+		<form action="/result" method="post">
 			<p><input type="text" class="edit-txt"> へ</p>
-			<textarea class="txt-blank"></textarea>
+			<textarea class="txt-blank" name="letter_body">
+                {{ letter_body }}
+            </textarea>
 			<p><input type="text" class="edit-txt"> より</p>
+            <input type="submit" value="これでOK">
 		</form>
 	</div>
 	<img class="button" src="/static/images/button02.png">

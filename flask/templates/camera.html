@@ -1,21 +1,30 @@
 {% extends "layout.html" %}
 {% block content %}
-<video id="myVideo" width="400" height="300" autoplay="1" ></video>
 
-<script type="text/javascript">
- navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || window.navigator.mozGetUserMedia;
- window.URL = window.URL || window.webkitURL;
+<form action="/edit" method="post" enctype="multipart/form-data">
+    <p><input type="file" name="upfile" id="upfile" accept="image/*" capture="camera" onchange="update_thumbnail()" /></p>
+    <span style="color: #ff0000;" data-mce-style="color: #ff0000;"><div><img id="thumbnail" src=""></div></span>
+    <p><input type="submit" name="save" value="保存"></p>
+</form>
 
- var video = document.getElementById('myVideo');
- var localStream = null;
- navigator.getUserMedia({video: true, audio: false},
-  function(stream) { // for success case
-   console.log(stream);
-   video.src = window.URL.createObjectURL(stream);
-  },
-  function(err) { // for error case
-   console.log(err);
+<script>
+<!--
+function update_thumbnail(){
+  files = document.getElementById('upfile').files;
+  if (files.length > 0) {
+    // 選択されたファイル情報を取得
+    var file = files[0];
+
+    // readerのresultプロパティに、データURLとしてエンコードされたファイルデータを格納
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
+
+    reader.onload = function() {
+      document.getElementById('thumbnail').src = reader.result;
+    }
   }
- );
+}
+//-->
 </script>
+
 {% endblock %}

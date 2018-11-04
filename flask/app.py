@@ -43,8 +43,9 @@ def edit():
 
 @app.route('/result', methods=['POST'])
 def result():
-    letter_body = str(request.form["letter_body"])
-    print("取得文字列"+letter_body)
+    letter_body = request.form["letter_body"]
+    print("取得文字列")
+    print(letter_body)
     # らいきの関数を呼ぶ
 
     #もらったデータと花データベースを比較し、似ている数個をピックアップ
