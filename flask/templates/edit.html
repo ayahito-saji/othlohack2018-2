@@ -1,5 +1,8 @@
 {% extends "layout.html" %}
 {% block content %}
+
+<div id="loading_view" style="position: fixed;top:0px;left:0px;width:100%;height:100%;background: #000000;z-index:100;visibility:hidden;"></div>
+
 <section class="edit">
 	<h3 class="main-txt">手直しします</h3>
 	<p class="sb-txt">あなたが書いたお手紙がきちんと読み取れているか確認しましょう。<br>手直ししたい箇所をタップしてください。</p>
@@ -10,9 +13,17 @@
                 {{ letter_body }}
             </textarea>
 			<p><input type="text" class="edit-txt"> より</p>
-            <input type="submit" value="これでOK">
+            <input type="submit" value="これでOK" onclick="visible_loading_view()">
 		</form>
 	</div>
 	<img class="button" src="/static/images/button02.png">
 </section>
+
+<script>
+<!--
+function visible_loading_view(){
+    document.getElementById("loading_view").style.visibility = "visible";
+}
+//-->
+</script>
 {% endblock %}

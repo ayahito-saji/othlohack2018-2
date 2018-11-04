@@ -3,9 +3,11 @@
 
 <form action="/edit" method="post" enctype="multipart/form-data">
     <p><input type="file" name="upfile" id="upfile" accept="image/*" capture="camera" onchange="update_thumbnail()" /></p>
-    <span style="color: #ff0000;" data-mce-style="color: #ff0000;"><div><img id="thumbnail" src=""></div></span>
-    <p><input type="submit" name="save" value="保存"></p>
+    <span style="color: #ff0000;" data-mce-style="color: #ff0000;"><div><img id="thumbnail" src="" style="width: 80px;height: auto;"></div></span>
+    <p><input type="submit" name="save" value="送信する" onclick="visible_loading_view()"></p>
 </form>
+
+<div id="loading_view" style="position: fixed;top:0px;left:0px;width:100%;height:100%;background: #000000;z-index:100;visibility:hidden;"></div>
 
 <script>
 <!--
@@ -23,6 +25,9 @@ function update_thumbnail(){
       document.getElementById('thumbnail').src = reader.result;
     }
   }
+}
+function visible_loading_view(){
+    document.getElementById("loading_view").style.visibility = "visible";
 }
 //-->
 </script>
