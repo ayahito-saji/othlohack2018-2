@@ -2,6 +2,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 import json
 import google_ocr
+from functions import *
 
 # 自身の名称を app という名前でインスタンス化する
 app = Flask(__name__)
@@ -20,9 +21,12 @@ def camera():
 @app.route('/edit', methods=['POST', 'GET'])
 def edit():
     # imageファイルを保存する
-    img_file = request.files['upfile']
-    img_file.save("./camera_data/sample.jpg")
-
+    try:
+        img_file = request.files['upfile']
+        img_file.save("./camera_data/sample.jpg")
+    except:
+        return render_template('edit.html', letter_body="")
+        
     # ファイルをOCRにかける
     api_key = "AIzaSyDNDH54qwYoqAs_qXSyYsBjWUfcXbdk6uA"
     image_filenames = ["./camera_data/sample.jpg"]
@@ -48,10 +52,12 @@ def result():
     print(letter_body)
     # らいきの関数を呼ぶ
 
+    vectors_list = letter_to_vector(letter_body)
+    results_list = get_similar_flowers_list(vectors_list)
     #もらったデータと花データベースを比較し、似ている数個をピックアップ
+    print(results_list)
 
-
-    return render_template('result.html')
+    return render_template('result.html', results=results_list, letter_body=letter_body)
 
 if __name__ == '__main__':
     app.debug = True # デバッグモード有効化

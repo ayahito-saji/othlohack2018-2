@@ -5,30 +5,20 @@
 	<p class="sb-txt">大切なあの人への思いがこもった、あなたの手紙から生まれた花束です。</p>
 	<div class="txt-area">
 		<ul class="hana-list">
+            {% for result in results %}
 			<li class="hana-item">
 				<div class="hana-flex">
 					<div class="hana-img"><img src="../static/images/bouquet.png"></div>
-					<div class="hana-txt">テキストが入りますテキストが入ります</div>
+					<div class="hana-txt">{{ result[0] }}<br>{{ result[1] }}</div>
 				</div>
 			</li>
-			<li class="hana-item">
-				<div class="hana-flex">
-					<div class="hana-img"><img src="../static/images/bouquet.png"></div>
-					<div class="hana-txt">テキストが入りますテキストが入ります</div>
-				</div>
-			</li>
-			<li class="hana-item">
-				<div class="hana-flex">
-					<div class="hana-img"><img src="../static/images/bouquet.png"></div>
-					<div class="hana-txt">テキストが入りますテキストが入ります</div>
-				</div>
-			</li>
+            {% endfor %}
 		</ul>
 	</div>
 	<h3 class="main-txt">あなたの手紙</h3>
 	<div class="txt-area" style="margin: 0 auto 50px">
 		<p><input type="text" class="edit-txt"> へ</p>
-		<div class="txt-blank"></div>
+		<div class="txt-blank">{{ letter_body }}</div>
 		<p><input type="text" class="edit-txt"> より</p>
 	</div>
 	<img class="button" src="/static/images/button03.png"><br>
