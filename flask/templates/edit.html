@@ -1,5 +1,15 @@
 {% extends "layout.html" %}
 {% block content %}
-<h3>Hello</h3>
-はい、花束！
+<section class="edit">
+	<h3 class="main-txt">手直しします</h3>
+	<p class="sb-txt">あなたが書いたお手紙がきちんと読み取れているか確認しましょう。<br>手直ししたい箇所をタップしてください。</p>
+	<div class="txt-area">
+		<form>
+			<p><input type="text" class="edit-txt"> へ</p>
+			<textarea class="txt-blank"></textarea>
+			<p><input type="text" class="edit-txt"> より</p>
+		</form>
+	</div>
+	<img class="button" src="/static/images/button02.png">
+</section>
 {% endblock %}
