@@ -1,13 +1,28 @@
 {% extends "layout.html" %}
 {% block content %}
+<section class="camera">
+	<h3 class="main-txt">手紙の写真を読み取ります</h3>
+	<p class="sb-txt">カメラを起動します。手紙を用意してください。</p>
+	<form action="/edit" method="post" enctype="multipart/form-data">
+  
+    <img id="thumbnail" src="" class="thumb">  
+		<label>
+			<input type="file" name="upfile" id="upfile" accept="image/*" capture="camera" onchange="update_thumbnail()" style="display: none;" />
+			<img src="../static/images/camera-btn01.png" class="button">
+		</label>
+		<input type="image" src="/static/images/camera-btn02.png" class="button" onclick="visible_loading_view()">
+	</form>
+</section>
 
-<form action="/edit" method="post" enctype="multipart/form-data">
-    <p><input type="file" name="upfile" id="upfile" accept="image/*" capture="camera" onchange="update_thumbnail()" /></p>
-    <span style="color: #ff0000;" data-mce-style="color: #ff0000;"><div><img id="thumbnail" src="" style="width: 80px;height: auto;"></div></span>
-    <p><input type="submit" name="save" value="送信する" onclick="visible_loading_view()"></p>
-</form>
+<div id="loading_view" style="position: fixed;top:0px;left:0px;width:100%;height:100%;background: linear-gradient(25deg, rgba(255,90,90,0.4), rgba(255,177,120,0.7)),#fff;z-index:100; visibility: hidden">
+	<h3 class="main-txt" style="margin: 130px 10px 0;
+    color: #fff;">手紙を読み込んでいます…</h3>
+	<img src="../static/images/bouquet.png" style="width: 60%;
+    display: block;
+    margin: 25% auto;">
+</div>
 
-<div id="loading_view" style="position: fixed;top:0px;left:0px;width:100%;height:100%;background: #000000;z-index:100;visibility:hidden;"></div>
+
 
 <script>
 <!--

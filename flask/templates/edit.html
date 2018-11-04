@@ -1,7 +1,13 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<div id="loading_view" style="position: fixed;top:0px;left:0px;width:100%;height:100%;background: #000000;z-index:100;visibility:hidden;"></div>
+<div id="loading_view" style="position: fixed;top:0px;left:0px;width:100%;height:100%;background: linear-gradient(25deg, rgba(255,90,90,0.4), rgba(255,177,120,0.7)),#fff;z-index:100; visibility: hidden">
+	<h3 class="main-txt" style="margin: 130px 10px 0;
+    color: #fff;">花束をつくっています…</h3>
+	<img src="../static/images/bouquet.png" style="width: 60%;
+    display: block;
+    margin: 25% auto;">
+</div>
 
 <section class="edit">
 	<h3 class="main-txt">手直しします</h3>
@@ -9,14 +15,11 @@
 	<div class="txt-area">
 		<form action="/result" method="post">
 			<p><input type="text" class="edit-txt"> へ</p>
-			<textarea class="txt-blank" name="letter_body">
-                {{ letter_body }}
-            </textarea>
+			<textarea class="txt-blank" name="letter_body">{{ letter_body }}</textarea>
 			<p><input type="text" class="edit-txt"> より</p>
-            <input type="submit" value="これでOK" onclick="visible_loading_view()">
+            <input type="image" src="/static/images/button02.png" class="button" onclick="visible_loading_view()">
 		</form>
 	</div>
-	<img class="button" src="/static/images/button02.png">
 </section>
 
 <script>
