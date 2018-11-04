@@ -12,7 +12,7 @@
 					<div class="hana-txt">{{ result[0] }}<br>{{ result[1] }}<br>
                         <small>
                             {% for sub_word in result[2] %}
-                                {{ sub_word }} 
+                                {{ sub_word }}
                             {% endfor %}
                         </small>
                     </div>
@@ -23,9 +23,9 @@
 	</div>
 	<h3 class="main-txt">あなたの手紙</h3>
 	<div class="txt-area" style="margin: 0 auto 50px">
-		<p><input type="text" class="edit-txt"> へ</p>
+		<p><input type="text" class="edit-txt" value="{{ to_person }}"> へ</p>
 		<div class="txt-blank">{{ letter_body }}</div>
-		<p><input type="text" class="edit-txt"> より</p>
+		<p><input type="text" class="edit-txt" value="{{ from_person }}"> より</p>
 	</div>
 	<img class="button" src="/static/images/button03.png"><br>
 </section>

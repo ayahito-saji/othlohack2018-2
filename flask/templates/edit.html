@@ -10,13 +10,13 @@
 </div>
 
 <section class="edit">
-	<h3 class="main-txt">手直しします</h3>
-	<p class="sb-txt">あなたが書いたお手紙がきちんと読み取れているか確認しましょう。<br>手直ししたい箇所をタップしてください。</p>
+	<h3 class="main-txt">手直しとお名前</h3>
+	<p class="sb-txt">あなたが書いたお手紙がきちんと読み取れているか確認し，<br>大切な方のお名前をご入力ください。</p>
 	<div class="txt-area">
 		<form action="/result" method="post">
-			<p><input type="text" class="edit-txt"> へ</p>
+			<p><input type="text" class="edit-txt" name="to_person"> へ</p>
 			<textarea class="txt-blank" name="letter_body">{{ letter_body }}</textarea>
-			<p><input type="text" class="edit-txt"> より</p>
+			<p><input type="text" class="edit-txt" name="from_person"> より</p>
             <input type="image" src="/static/images/button02.png" class="button" onclick="visible_loading_view()">
 		</form>
 	</div>

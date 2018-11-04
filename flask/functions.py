@@ -4,10 +4,40 @@ import MeCab
 from gensim.models import KeyedVectors
 import numpy as np
 import re
+from threading import Lock
+
+class Model(object):
+
+    _model = None
+    _model_instance = None
+    _lock = Lock()
+
+    def __new__(cls):
+        raise NotImplementedError("nanndemoiiyomozi")
+
+    @classmethod
+    def __internal_new__(cls):
+        return super().__new__(cls)
+
+    @classmethod
+    def get_instance(cls):
+        if not cls._model_instance:
+            with cls._lock:
+                if not cls._model_instance:
+                    cls._model_instance = cls.__internal_new__()
+                    file_name = "./jawiki_studied_data.bin"
+                    cls._model = KeyedVectors.load_word2vec_format(file_name, binary=True)
+        return cls._model_instance
+
+    @staticmethod
+    def keep():
+        print("aa")
+
+
+
 
 def letter_to_vector(letter):
-    file_name = "./jawiki_studied_data.bin"
-    model = KeyedVectors.load_word2vec_format(file_name, binary=True)
+    model = Model.get_instance()._model
 
     M = MeCab.Tagger()
 
@@ -76,7 +106,7 @@ def get_similar_flowers_list(vectors_list):
     count = {}
 
     # ベクトル量の合計を記録する辞書型を設定
-    letter = open('../database/flower_to_vec.json', 'r', encoding="utf-8_sig")
+    letter = open('./flower_to_vec.json', 'r', encoding="utf-8_sig")
     flowers = json.load(letter)
     letter.close()
 

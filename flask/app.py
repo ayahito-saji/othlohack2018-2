@@ -6,6 +6,9 @@ from functions import *
 
 # 自身の名称を app という名前でインスタンス化する
 app = Flask(__name__)
+model_on_memory = Model.get_instance()
+
+
 
 # ここからウェブアプリケーション用のルーティングを記述
 # index にアクセスしたときの処理
@@ -26,7 +29,7 @@ def edit():
         img_file.save("./camera_data/sample.jpg")
     except:
         return render_template('edit.html', letter_body="")
-        
+
     # ファイルをOCRにかける
     api_key = "AIzaSyDNDH54qwYoqAs_qXSyYsBjWUfcXbdk6uA"
     image_filenames = ["./camera_data/sample.jpg"]
@@ -47,9 +50,13 @@ def edit():
 
 @app.route('/result', methods=['POST'])
 def result():
+    to_person = request.form["to_person"]
     letter_body = request.form["letter_body"]
+    from_person = request.form["from_person"]
     print("取得文字列")
     print(letter_body)
+    print(to_person)
+    print(from_person)
     # らいきの関数を呼ぶ
 
     vectors_list = letter_to_vector(letter_body)
@@ -57,8 +64,9 @@ def result():
     #もらったデータと花データベースを比較し、似ている数個をピックアップ
     print(results_list)
 
-    return render_template('result.html', results=results_list, letter_body=letter_body)
+    return render_template('result.html', results=results_list, letter_body=letter_body, to_person=to_person, from_person=from_person)
 
 if __name__ == '__main__':
     app.debug = True # デバッグモード有効化
     app.run(host='0.0.0.0') # どこからでもアクセス可能に
+    model_on_memory.keep()
