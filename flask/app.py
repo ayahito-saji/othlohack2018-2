@@ -17,7 +17,7 @@ def index():
 def camera():
     return render_template('camera.html')
 
-@app.route('/edit', methods=['POST'])
+@app.route('/edit', methods=['POST', 'GET'])
 def edit():
     # imageファイルを保存する
     img_file = request.files['upfile']
@@ -28,16 +28,23 @@ def edit():
     image_filenames = ["./camera_data/sample.jpg"]
     response = google_ocr.request_ocr(api_key, image_filenames)
     if response.status_code != 200 or response.json().get('error'):
-        print(response.text)
+        # print(response.text)
         return render_template('edit.html', letter_body="")
     else:
         with open('./camera_data/sample.jpg.json', 'w', encoding='utf-8') as fp:
             fp.write(json.dumps(response.json(), ensure_ascii=False))
-        return render_template('edit.html', letter_body=response.json()["responses"][0]["textAnnotations"][0]["description"])
+
+        try:
+            letter_body = response.json()["responses"][0]["textAnnotations"][0]["description"]
+        except:
+            letter_body = ""
+        return render_template('edit.html', letter_body=letter_body)
 
 
 @app.route('/result', methods=['POST'])
 def result():
+    letter_body = str(request.form["letter_body"])
+    print("取得文字列"+letter_body)
     # らいきの関数を呼ぶ
 
     #もらったデータと花データベースを比較し、似ている数個をピックアップ

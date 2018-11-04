@@ -8,7 +8,7 @@ def make_image_data_list(image_filenames):
     for imgname in image_filenames:
         with open(imgname, 'rb') as f:
             ctxt = b64encode(f.read()).decode()
-            print(ctxt)
+            # print(ctxt)
             img_requests.append({
                 'image': {'content': ctxt},
                 'features': [{
