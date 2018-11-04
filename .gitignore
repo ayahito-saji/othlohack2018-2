@@ -1,2 +1,7 @@
 .DS_Store
-idea/
+.idea/
+.bin
+/Mecab_and_Word2vec/wiki/wikiextractor/*
+__pycache__
+wiki_text/
+saji/jawiki/
